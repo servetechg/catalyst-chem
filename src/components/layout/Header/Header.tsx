@@ -5,7 +5,6 @@ import {
   ArrowRightIcon,
   CloseIcon,
   LinkedInIcon,
-  LogoIcon,
   MenuIcon,
   WhatsAppIcon,
 } from '@/icons'
