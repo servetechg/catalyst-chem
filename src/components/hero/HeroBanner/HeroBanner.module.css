@@ -1,0 +1,138 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-banner-image);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgb(255 255 255) 0%,
+    rgb(255 255 255) 38%,
+    rgb(255 255 255 / 0.92) 48%,
+    rgb(255 255 255 / 0.55) 58%,
+    transparent 72%
+  );
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 2.5rem 3rem;
+}
+
+.content {
+  max-width: 40rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgb(30 41 59);
+}
+
+.eyebrowIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999rem;
+  border: 0.09375rem solid var(--color-primary);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.eyebrowIcon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.eyebrowHighlight {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.2vw, 2.625rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: rgb(15 23 42);
+}
+
+.description {
+  margin: 0 0 1.75rem;
+  max-width: 36.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgb(71 85 105);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+@media (min-width: 40rem) {
+  .inner {
+    padding-block: 3rem 3.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .inner {
+    padding-block: 3.5rem 4rem;
+  }
+
+  .content {
+    max-width: 42.5rem;
+  }
+
+  .title {
+    font-size: 2.625rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .inner {
+    padding-block: 4rem 4.5rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .background {
+    background-position: 75% center;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      to bottom,
+      rgb(255 255 255) 0%,
+      rgb(255 255 255 / 0.96) 55%,
+      rgb(255 255 255 / 0.75) 100%
+    );
+  }
+}

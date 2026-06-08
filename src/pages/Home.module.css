@@ -1,0 +1,168 @@
+.section {
+  padding: 5rem 1.5rem;
+}
+
+.sectionAlt {
+  background-color: rgb(248 250 252);
+}
+
+.sectionHeader {
+  max-width: 42rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.sectionLabel {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0043bd;
+}
+
+.sectionTitle {
+  margin-bottom: 1rem;
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgb(15 23 42);
+}
+
+.sectionDescription {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: rgb(100 116 139);
+}
+
+.aboutGrid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.aboutText {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: rgb(71 85 105);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.statCard {
+  border-radius: 1rem;
+  border: 0.0625rem solid rgb(226 232 240);
+  background-color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0043bd;
+}
+
+.statLabel {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: rgb(100 116 139);
+}
+
+.servicesGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.serviceCard {
+  border-radius: 1rem;
+  border: 0.0625rem solid rgb(226 232 240);
+  background-color: white;
+  padding: 2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 0.625rem 2.5rem -0.625rem rgb(29 106 241 / 0.2);
+  transform: translateY(-0.125rem);
+}
+
+.serviceIcon {
+  display: inline-flex;
+  margin-bottom: 1.25rem;
+  border-radius: 0.75rem;
+  background-color: rgb(219 234 254);
+  padding: 0.75rem;
+  color: #0043bd;
+}
+
+.serviceIcon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.serviceTitle {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(15 23 42);
+}
+
+.serviceDescription {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: rgb(100 116 139);
+}
+
+.cta {
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #0043bd 0%, #003599 100%);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.ctaTitle {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+.ctaText {
+  margin: 0 auto 1.5rem;
+  max-width: 32rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: rgb(219 234 254);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.625rem;
+  background-color: white;
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  color: #0043bd;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.ctaButton:hover {
+  transform: translateY(-0.0625rem);
+}
+
+@media (min-width: 48rem) {
+  .aboutGrid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
