@@ -13,14 +13,14 @@ export const PORT_CARDS = {
   left: {
     location: 'Adabiya Port, Egypt',
     image:
-      '/public/images/logistics/1.jpg',
+      '/images/logistics/1.jpg',
     footer:
       'Efficient bulk handling with secure storage and flexible packaging solutions.',
   },
   right: {
     location: 'Rotterdam Port, Europe',
     image:
-      '/public/images/logistics/2.jpg',
+      '/images/logistics/2.jpg',
     footer:
       'European gateway with seamless logistics and reliable distribution across the region.',
   },
@@ -29,8 +29,8 @@ export const PORT_CARDS = {
 export const FEATURED_CARD = {
   title: 'Bulk vessel discharge to storage tanks',
   image:
-    '/public/images/logistics/3.jpg',
-  steps: [
+    '/images/logistics/3.jpg',
+  steps: [ 
     { label: 'Bulk supply', icon: 'ship' as const },
     { label: 'ISO tanks', icon: 'iso' as const },
     { label: 'IBCs', icon: 'ibc' as const },
