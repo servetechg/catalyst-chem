@@ -12,5 +12,5 @@ export const HERO = {
     'Catalyst Chem supplies high-quality chemical raw materials for paints, coatings, resins, emulsion, adhesives, and industrial applications — backed by trusted sourcing from China, Egypt, Saudi Arabia, Russia, Europe, and global markets, with strategic terminal access in Egypt and Europe, bulk handling capabilities, flexible packaging options, and reliable logistics to keep you moving.',
   primaryCta: { label: 'Request a Quote', href: '#contact' },
   secondaryCta: { label: 'Explore Products', href: '#products' },
-  bannerImage: '/images/hero-banner.png',
+  bannerImage: '/images/hero-banner2.png',
 } as const

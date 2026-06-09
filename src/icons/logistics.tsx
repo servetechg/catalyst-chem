@@ -1,5 +1,12 @@
-import type { SVGProps } from 'react'
-import type { LogisticsIconType } from '@/constants/logistics'
+import type { ImgHTMLAttributes, SVGProps } from 'react'
+import {
+  LOGISTICS_ICON_IMAGES,
+  getLogisticsIconSize,
+  getLogisticsSvgIconSize,
+  isLogisticsImageIcon,
+  type LogisticsIconSizeContext,
+  type LogisticsIconType,
+} from '@/constants/logistics'
 
 type IconProps = SVGProps<SVGSVGElement>
 
@@ -10,59 +17,6 @@ const strokeIcon: IconProps = {
   strokeWidth: 1.5,
   stroke: 'currentColor',
   'aria-hidden': true,
-}
-
-export function ShipLogisticsIcon(props: IconProps) {
-  return (
-    <svg {...strokeIcon} {...props}>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3 18h18M5 14l2-4h10l2 4M7 10V6h10v4M9 6V4h6v2"
-      />
-      <path strokeLinecap="round" d="M6 14h12" />
-    </svg>
-  )
-}
-
-export function TankLogisticsIcon(props: IconProps) {
-  return (
-    <svg {...strokeIcon} {...props}>
-      <rect x="7" y="5" width="10" height="14" rx="5" strokeLinejoin="round" />
-      <path strokeLinecap="round" d="M9 5V3h6v2M12 19v2" />
-      <path strokeLinecap="round" d="M9 9h6M9 12h6" />
-    </svg>
-  )
-}
-
-export function IsoTankLogisticsIcon(props: IconProps) {
-  return (
-    <svg {...strokeIcon} {...props}>
-      <rect x="3" y="8" width="18" height="8" rx="2" />
-      <path strokeLinecap="round" d="M6 8V6h12v2M6 16v2h12v-2" />
-      <path strokeLinecap="round" d="M9 11h6" />
-    </svg>
-  )
-}
-
-export function IbcLogisticsIcon(props: IconProps) {
-  return (
-    <svg {...strokeIcon} {...props}>
-      <rect x="6" y="4" width="12" height="16" rx="1.5" />
-      <path strokeLinecap="round" d="M6 8h12M6 12h12M6 16h12M9 4V2h6v2" />
-    </svg>
-  )
-}
-
-export function DrumLogisticsIcon(props: IconProps) {
-  return (
-    <svg {...strokeIcon} {...props}>
-      <ellipse cx="12" cy="6" rx="5" ry="2" />
-      <path strokeLinecap="round" d="M7 6v12c0 1.1 2.24 2 5 2s5-.9 5-2V6" />
-      <ellipse cx="12" cy="18" rx="5" ry="2" />
-      <path strokeLinecap="round" d="M7 10h10M7 14h10" />
-    </svg>
-  )
 }
 
 export function ShieldLogisticsIcon(props: IconProps) {
@@ -112,25 +66,47 @@ export function FlowArrowIcon(props: IconProps) {
   )
 }
 
-const LOGISTICS_ICON_MAP = {
-  ship: ShipLogisticsIcon,
-  tank: TankLogisticsIcon,
-  iso: IsoTankLogisticsIcon,
-  ibc: IbcLogisticsIcon,
-  drums: DrumLogisticsIcon,
+const LOGISTICS_SVG_ICON_MAP = {
   shield: ShieldLogisticsIcon,
   award: AwardLogisticsIcon,
   clock: ClockLogisticsIcon,
   globe: GlobeLogisticsIcon,
 } as const
 
+type LogisticsIconProps = {
+  type: LogisticsIconType
+  className?: string
+  imgClassName?: string
+  sizeContext?: LogisticsIconSizeContext
+  size?: string
+} & Pick<ImgHTMLAttributes<HTMLImageElement>, 'alt'>
+
 export function LogisticsIcon({
   type,
   className,
-}: {
-  type: LogisticsIconType
-  className?: string
-}) {
-  const Icon = LOGISTICS_ICON_MAP[type]
-  return <Icon className={className} />
+  imgClassName,
+  sizeContext = 'default',
+  size,
+  alt = '',
+}: LogisticsIconProps) {
+  if (isLogisticsImageIcon(type)) {
+    const iconSize = size ?? getLogisticsIconSize(type, sizeContext)
+
+    return (
+      <img
+        src={LOGISTICS_ICON_IMAGES[type].src}
+        alt={alt}
+        aria-hidden={alt ? undefined : true}
+        className={imgClassName ?? className}
+        style={{ width: iconSize, height: iconSize }}
+        loading="lazy"
+        decoding="async"
+      />
+    )
+  }
+
+  const Icon = LOGISTICS_SVG_ICON_MAP[type]
+  const iconSize = size ?? getLogisticsSvgIconSize(sizeContext)
+
+  return <Icon className={className} style={{ width: iconSize, height: iconSize }} />
 }

@@ -26,7 +26,11 @@ export default function FeaturedCard() {
       <div className={styles.footer}>
         {FEATURED_CARD.features.map((feature) => (
           <div key={feature.label} className={styles.feature}>
-            <LogisticsIcon type={feature.icon} className={styles.featureIcon} />
+            <LogisticsIcon
+              type={feature.icon}
+              className={styles.featureIcon}
+              sizeContext="footer"
+            />
             <span className={styles.featureLabel}>{feature.label}</span>
           </div>
         ))}

@@ -59,7 +59,12 @@ export default function LogisticsSlider() {
         {LOGISTICS_SLIDES.map((slide) => (
           <SwiperSlide key={slide.id} className={styles.swiperSlide}>
             <div className={styles.slide}>
-              <LogisticsIcon type={slide.icon} className={styles.icon} />
+              <LogisticsIcon
+                type={slide.icon}
+                className={styles.icon}
+                alt={slide.label}
+                sizeContext="slider"
+              />
               <span className={styles.label}>{slide.label}</span>
             </div>
           </SwiperSlide>
